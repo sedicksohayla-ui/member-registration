@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Member User ID Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="card">
+    <form id="form" novalidate>
+
+      <!-- Registration form -->
+      <div id="formArea">
+        <h1>Create your online member account</h1>
+        <p class="intro">Use the details exactly as they appear in your Social Security System records. Fields marked <span class="required">*</span> are required.</p>
+
+        <!-- Section 1: Account details -->
+        <fieldset>
+          <legend>Account details</legend>
+          <div class="grid">
+
+            <div class="field full">
+              <label for="ssn">CRN / SS number <span class="required">*</span></label>
+              <input id="ssn" inputmode="numeric" placeholder="e.g. 34-1234567-8">
+              <p class="hint">Enter 10 digits (SS number) or 12 digits (CRN).</p>
+              <p class="message"></p>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address <span class="required">*</span></label>
+              <input id="email" type="email" placeholder="name@example.com">
+              <p class="message"></p>
+            </div>
+
+            <div class="field">
+              <label for="email2">Confirm email address <span class="required">*</span></label>
+              <input id="email2" type="email" placeholder="Re-enter your email">
+              <p class="message"></p>
+            </div>
+
+            <div class="field">
+              <label for="uid">Preferred user ID <span class="required">*</span></label>
+              <input id="uid" placeholder="e.g. Juan_Cruz1234">
+              <ul class="rules" id="rules">
+                <li data-rule="length">8 to 20 characters</li>
+                <li data-rule="letter">Starts with a letter</li>
+                <li data-rule="chars">Letters, numbers and underscore only</li>
+              </ul>
+              <p class="message"></p>
+            </div>
+
+            <div class="field">
+              <label for="uid2">Confirm user ID <span class="required">*</span></label>
+              <input id="uid2" placeholder="Re-enter your user ID">
+              <p class="message"></p>
+            </div>
+
+          </div>
+        </fieldset>
+
+        <!-- Section 2: Personal details -->
+        <fieldset>
+          <legend>Personal details</legend>
+          <div class="grid">
+
+            <div class="field">
+              <label for="last">Surname / last name <span class="required">*</span></label>
+              <input id="last">
+              <p class="message"></p>
+            </div>
+
+            <div class="field">
+              <label for="first">Given name <span class="required">*</span></label>
+              <input id="first">
+              <p class="message"></p>
+            </div>
+
+            <div class="field">
+              <label for="middle">Middle name <span class="optional">(optional)</span></label>
+              <input id="middle">
+            </div>
+
+            <div class="field">
+              <label for="dob">Date of birth <span class="required">*</span></label>
+              <input id="dob" type="date">
+              <p class="message"></p>
+            </div>
+
+          </div>
+        </fieldset>
+
+        <!-- Section 3: Mailing address -->
+        <fieldset>
+          <legend>Mailing address (Philippines)</legend>
+          <div class="grid">
+
+            <div class="field full">
+              <div class="toggle">
+                <label><input type="radio" name="location" value="manila" checked><span>Metro Manila</span></label>
+                <label><input type="radio" name="location" value="province"><span>Province</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="unit">Room / floor / unit no. &amp; building name <span class="optional">(optional)</span></label>
+              <input id="unit">
+            </div>
+
+            <div class="field">
+              <label for="house">House / lot &amp; block no.</label>
+              <input id="house">
+            </div>
+
+            <div class="field">
+              <label for="street">Street</label>
+              <input id="street">
+            </div>
+
+            <div class="field">
+              <label for="subdivision">Subdivision</label>
+              <input id="subdivision">
+            </div>
+
+            <div class="field" id="cityBox">
+              <label for="city">City</label>
+              <select id="city">
+                <option value="">Select a city</option>
+                <option>Manila</option>
+                <option>Quezon City</option>
+                <option>Makati</option>
+                <option>Pasig</option>
+                <option>Taguig</option>
+                <option>Mandaluyong</option>
+                <option>Marikina</option>
+                <option>Caloocan</option>
+                <option>Parañaque</option>
+              </select>
+            </div>
+
+            <div class="field full" id="provinceBox" hidden>
+              <label for="province">Province and municipality</label>
+              <input id="province" placeholder="e.g. Sarangani, Alabel">
+            </div>
+
+          </div>
+        </fieldset>
+
+        <button class="btn-main" type="submit">Create account</button>
+        <button class="btn-clear" type="reset">Clear form</button>
+      </div>
+
+      <!-- Success message (hidden until the form is submitted) -->
+      <div class="success" id="successBox" hidden>
+        <div class="check">✓</div>
+        <h1>Registration received</h1>
+        <p class="intro">We sent a confirmation link to <strong id="successEmail"></strong>. Open it to activate your account.</p>
+      </div>
+
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
